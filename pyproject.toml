@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "testspec"
+version = "0.1.0"
+description = "Spec-driven test case generation toolkit — from PRD to structured test cases"
+requires-python = ">=3.9"
+dependencies = [
+    "typer>=0.12.0",
+    "rich>=13.0.0",
+    "openai>=1.30.0",
+    "openpyxl>=3.1.0",
+    "pyyaml>=6.0",
+]
+
+[project.scripts]
+testspec = "testspec.cli:app"
+
+[tool.setuptools.packages.find]
+include = ["testspec*"]

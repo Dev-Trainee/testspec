@@ -1,0 +1,31 @@
+# testspec 配置文件
+
+# LLM 配置（支持 OpenAI 兼容接口）
+llm:
+  provider: openai            # openai / azure / ollama / custom
+  model: gpt-4o              # 使用的模型
+  base_url: ~                # 自定义 API 地址（留空则使用默认）
+  api_key_env: OPENAI_API_KEY # API Key 的环境变量名
+  temperature: 0.3           # 生成温度（测试用例建议低温度以保证确定性）
+
+# 输出配置
+output:
+  language: zh-CN            # 用例输出语言
+  format: markdown           # 默认输出格式 (markdown / excel)
+  excel_template: ~          # 自定义 Excel 模板路径
+
+# 测试分类标签
+priorities:
+  - P0: 冒烟测试 — 核心业务路径，阻塞发布
+  - P1: 核心测试 — 重要功能，高频使用场景
+  - P2: 一般测试 — 常规功能，中等优先级
+  - P3: 边缘测试 — 低频场景，边界条件
+
+# 用例分类维度
+categories:
+  - functional: 功能测试
+  - boundary: 边界值测试
+  - exception: 异常场景测试
+  - security: 安全测试
+  - performance: 性能测试
+  - compatibility: 兼容性测试
